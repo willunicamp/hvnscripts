@@ -1,0 +1,10 @@
+import pickle
+
+res0 = open("edges0.pickle", 'r')
+res1 = open("edges1.pickle", 'r')
+bestEdges0 = pickle.load(res0)
+bestEdges1 = pickle.load(res1)
+
+bestEdges = bestEdges0 + bestEdges1
+
+pickle.dump(bestEdges, open( "edges.pickle", "wb" ))

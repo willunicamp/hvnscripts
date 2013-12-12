@@ -1,0 +1,96 @@
+import pickle, sys
+import matplotlib 
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import *
+import networkx as nx
+
+bestFile = open("pickle/attack/best.pickle", 'r')
+medbetFile = open("pickle/attack/medbetNormal.pickle", 'r')
+vmgFile = open("pickle/attack/vmgNormal.pickle", 'r')
+vvgFile = open("pickle/attack/vvgNormal.pickle", 'r')
+vmbFile = open("pickle/attack/vmbNormal.pickle", 'r')
+
+best = pickle.load(bestFile)
+vvg = pickle.load(vvgFile)
+vmg = pickle.load(vmgFile)
+vmb = pickle.load(vmbFile)
+medBet = pickle.load(medbetFile)
+
+bestFile.close()
+vvgFile.close()
+vmgFile.close()
+vmbFile.close()
+medbetFile.close()
+
+xvalues = best[0]
+
+#define a figura
+fig = plt.figure(1,figsize=(6,4))
+fig.clf()
+ax = plt.subplot(111)
+ax.set_xlabel("capacity (C)")
+ax.set_ylabel("damage (D)")
+plt.ylim([0, 1])
+
+lns0 = ax.plot(xvalues, best[1], '-', label = 'Best', color="#999999", linewidth=3.0)
+lns1 = ax.plot(xvalues, vvg[1], '-', label = 'VVG', color="#0000FF", linewidth=2.0)
+lns2 = ax.plot(xvalues, vmg[1], '-', label = 'VMG', color="#FF0000", linewidth=2.0)
+lns3 = ax.plot(xvalues, vmb[1], '-', label = 'VMB', color="#000000", linewidth=2.0)
+lns4 = ax.plot(xvalues, medBet[1], '-', label = 'VMDB', color="#00FF00", linewidth=2.0)
+
+lns = lns0+lns1+lns2+lns3+lns4
+labs = [l.get_label() for l in lns]
+ax.legend(lns, labs, loc=0)
+
+plt.title("Dano na rede com 1 aresta \nadicional usando 4 estrategias")
+plt.savefig("images/attack/dano_50_arestas_normal.eps", dpi=300, bbox_inches='tight')
+
+#-------------=========-------------
+
+bestFile = open("pickle/attack/best.pickle", 'r')
+medbetFile = open("pickle/attack/medbetMincut.pickle", 'r')
+vmgFile = open("pickle/attack/vmgMincut.pickle", 'r')
+vvgFile = open("pickle/attack/vvgMincut.pickle", 'r')
+vmbFile = open("pickle/attack/vmbMincut.pickle", 'r')
+
+best = pickle.load(bestFile)
+vvg = pickle.load(vvgFile)
+vmg = pickle.load(vmgFile)
+vmb = pickle.load(vmbFile)
+medBet = pickle.load(medbetFile)
+
+bestFile.close()
+vvgFile.close()
+vmgFile.close()
+vmbFile.close()
+medbetFile.close()
+
+xvalues = best[0]
+
+#define a figura
+fig = plt.figure(1,figsize=(6,4))
+fig.clf()
+ax = plt.subplot(111)
+ax.set_xlabel("capacity (C)")
+ax.set_ylabel("damage (D)")
+plt.ylim([0, 1])
+
+lns0 = ax.plot(xvalues, best[1], '-', label = 'Best', color="#CCCCCC", linewidth=3.0)
+lns1 = ax.plot(xvalues, vvg[1], '-', label = 'VVG', color="#666666", linewidth=1.0)
+lns2 = ax.plot(xvalues, vmg[1], '-', label = 'VMG', color="#000000", linewidth=1.0)
+lns3 = ax.plot(xvalues, vmb[1], '--', label = 'VMB', color="#666666", linewidth=1.0)
+lns4 = ax.plot(xvalues, medBet[1], '', label = 'VMDB', color="#000000", linewidth=1.0)
+
+lns = lns0+lns1+lns2+lns3+lns4
+labs = [l.get_label() for l in lns]
+ax.legend(lns, labs, loc=0)
+
+plt.title("Dano na rede com 1 aresta \nadicional usando 4 estrategias (mincut)")
+plt.savefig("images/attack/dano_50_arestas_mincut.eps", dpi=300, bbox_inches='tight')
+
+#-------------=========-------------
+
+plt.figure(1,figsize=(8,8))
+fig.clf()
+# twopi, gvcolor, wc, ccomps, tred, sccmap, fdp, circo, neato, acyclic, nop, gvpr, dot, sfdp
+pos=nx.graphviz_layout(G,prog="neato")
