@@ -1,3 +1,0 @@
-Executar primeiro o arquivo efficiency50Edges_AAI.py, para gerar os arquivos contendo as arestas ideais.
-Em seguida, executar o strategiesCompare.py, que irá gerar os graficos.
-Por ultimo, executar graphStrategisCreate.py para criar os grafos de todas as estrategias.
