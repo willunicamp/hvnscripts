@@ -10,8 +10,6 @@ Além deste arquivo, há mais dois diretórios, "estratégias" e "falhas". No pr
 
 ---
 
-Este arquivo é um pequeno guia para executar os arquivos contidos neste diretório da forma correta. Verifique se possui instalado os módulos necessários antes de executar estes arquivos.
-
 This is a short file to execute the scripts in this directory. Check if you have the needed modules before execute them.
 
 The file "download_rede.py" is responsible to acces the ONS SINDAT website and transform the available data from HTML to GML format and to transform it into two figures in the format EPS and PNG. In the first execution, it is necessary to provide the first parameter as "yes", telling the script to download the data.
