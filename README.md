@@ -3,7 +3,7 @@ Encontram-se neste diretório todos os arquivos utilizados na pesquisa "Alteraç
 
 Na pasta "arquivos" encontram-se os arquivos gerados pelos scripts utilizados na pesquisa. O diretório "codigos" contém os scripts desenvolvidos neste trabalho e o diretório "imagens" contém as imagens utilizadas na monografia.
 
-Dentro de cada diretório existe outro arquivo "leiame.txt", com mais instruções da utilidade e manipulação do seu conteúdo.
+Dentro de cada diretório existe outro arquivo "README.md", com mais instruções da utilidade e manipulação do seu conteúdo.
 
 Em caso de dúvidas, entre em contato com o autor pelo e-mail will.unicamp@gmail.com.
 
